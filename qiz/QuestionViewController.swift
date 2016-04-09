@@ -36,7 +36,7 @@ class QuestionViewController: UIViewController {
     var totalPoints = 0;
     var currentQuestionIndex = 0;
     
-    //вызывается, когда контроллер загрузил View
+    //вызывается, когда контроллер загрузил View (вызывается только один раз)
     override func viewDidLoad() {
         super.viewDidLoad()
         //отвечает за то, как и что показывать
@@ -47,6 +47,15 @@ class QuestionViewController: UIViewController {
         
         loadData()
         
+    }
+    
+    //вызывается, когда View сейчас отобразится на экране (вызывается каждый раз)
+    override func viewWillAppear(animated: Bool) {
+        //вернемся в начало викторины
+        super.viewWillAppear(animated)
+        currentQuestion = questionList?.first
+        currentQuestionIndex = 0
+        totalPoints = 0
     }
 
     func loadData(){
