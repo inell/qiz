@@ -100,6 +100,25 @@ class QuestionViewController: UIViewController {
         //перезаполнить tableView
         tableView.reloadData()
     }
+    
+    //Метод запускается при перехода на новый экран
+    //Вызывается после performSegueWithIdentifier()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //проверили типизацию целевого контроллера и сразу записали в переменную
+        if let newVC = segue.destinationViewController as? ResultViewController {
+            //передади но новый view наш результат
+            newVC.result = sender as! Int
+        }
+        
+        //А можно еще и так
+        /*
+        if segue.identifier == "ShowResult" {
+            let newVC = segue.destinationViewController as! ResultViewController
+            newVC.result = sender as! Int
+        }
+        */
+    }
 }
 
 //Расширение для поддержки отображения данных
@@ -133,7 +152,11 @@ extension QuestionViewController:UITableViewDelegate{
         }
         currentQuestionIndex += 1
         guard currentQuestionIndex < questionList?.count else {
-            print("DEAD")
+            
+            let rating = Int(Double(totalPoints) / Double(questionList!.count) * 100)
+            
+            //переход на новый экран
+            performSegueWithIdentifier("ShowResult", sender: rating)
             return
         }
         

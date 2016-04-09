@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gh5-If-CfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5LQ-kE-GOy">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -58,7 +58,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Question View Controller-->
+        <!--Вопросики-->
         <scene sceneID="XQk-E6-SCX">
             <objects>
                 <viewController id="gh5-If-CfI" customClass="QuestionViewController" customModule="Quiz_PetroKov" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,16 +71,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gV-kD-5TP">
-                                <rect key="frame" x="20" y="20" width="560" height="166"/>
+                                <rect key="frame" x="20" y="64" width="560" height="152"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9X-Mq-P1Z">
-                                <rect key="frame" x="20" y="206" width="560" height="21"/>
+                                <rect key="frame" x="20" y="236" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFC-p2-JaM">
-                                <rect key="frame" x="20" y="247" width="560" height="333"/>
+                                <rect key="frame" x="20" y="277" width="560" height="303"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="cg1-fT-8Mh" detailTextLabel="iJq-Kq-383" style="IBUITableViewCellStyleSubtitle" id="FZ9-vX-xLm">
@@ -125,13 +125,68 @@
                             <constraint firstItem="O9X-Mq-P1Z" firstAttribute="top" secondItem="0gV-kD-5TP" secondAttribute="bottom" constant="20" id="ywj-x9-a0p"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Вопросики" id="yKD-bh-Rt7">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="xOa-zB-4gN"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="0gV-kD-5TP" id="nph-hC-b1j"/>
                         <outlet property="label" destination="O9X-Mq-P1Z" id="fzd-1x-HJw"/>
                         <outlet property="tableView" destination="nFC-p2-JaM" id="XEk-sh-6O2"/>
+                        <segue destination="8GE-7s-dtD" kind="show" identifier="ShowResult" id="cce-Te-Mcb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ7-z0-Dcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="948"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="Sq0-Ea-6Jb">
+            <objects>
+                <viewController id="8GE-7s-dtD" customClass="ResultViewController" customModule="Quiz_PetroKov" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3mu-ey-f3g"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Un-As-M2Z"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WRu-rB-Ucf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваш результат" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0V-XW-laR">
+                                <rect key="frame" x="242" y="289" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q0V-XW-laR" firstAttribute="centerX" secondItem="WRu-rB-Ucf" secondAttribute="centerX" id="UwK-24-w9Y"/>
+                            <constraint firstItem="q0V-XW-laR" firstAttribute="centerY" secondItem="WRu-rB-Ucf" secondAttribute="centerY" id="ltG-TZ-Xja"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="q0V-XW-laR" id="AD6-ky-P2p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVW-jQ-LU9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="948"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fOF-mH-gf7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5LQ-kE-GOy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iCg-7s-AIz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gh5-If-CfI" kind="relationship" relationship="rootViewController" id="IYW-ch-vJq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE5-6b-YJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="948"/>
         </scene>
