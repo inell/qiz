@@ -14,7 +14,12 @@ struct Question {
     let question:String
     let answers:[String] //массив
     let correctAnswer:String
-    let imageName:String
+    private let imageName:String
+    
+    //Вычисляемое поле
+    var image:UIImage?{
+        return UIImage(named: imageName)
+    }
     
     //конструктор
     init(json:[String:AnyObject]){ //можно было NSDictionary

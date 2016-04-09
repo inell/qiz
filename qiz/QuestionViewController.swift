@@ -10,6 +10,22 @@ import UIKit
 
 class QuestionViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var questionList:[Question]? {//опциональная переменная, там может не быть значения
+        //афтерсеттер
+        didSet {
+            currentQuestion = questionList?.first
+        }
+    }
+    var currentQuestion:Question?{
+        didSet{
+            updateViews()
+        }
+    }
+    
     //вызывается, когда контроллер загрузил View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,5 +70,15 @@ class QuestionViewController: UIViewController {
         }
         
         print("Получили модель\n\(questionModels)")
+        
+        questionList = questionModels
+    }
+    
+    func updateViews()
+    {
+        imageView.image = currentQuestion?.image
+        
+        label.text = currentQuestion?.question
+        
     }
 }
