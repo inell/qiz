@@ -14,21 +14,29 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    //Список вопросов
     var questionList:[Question]? {//опциональная переменная, там может не быть значения
-        //афтерсеттер
+        //афтерсеттер, выполняется после установки переменной
         didSet {
             currentQuestion = questionList?.first
         }
     }
+    //Текущий вопрос
     var currentQuestion:Question?{
         didSet{
             updateViews()
         }
     }
     
+    //Получает ответы для вопроса
+    var answers:[String]?{
+        return currentQuestion?.answers
+    }
+    
     //вызывается, когда контроллер загрузил View
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
         loadData()
         
     }
@@ -76,9 +84,27 @@ class QuestionViewController: UIViewController {
     
     func updateViews()
     {
+        //настроили картинку
         imageView.image = currentQuestion?.image
-        
+        //задали вопрос
         label.text = currentQuestion?.question
-        
+        //перезаполнить tableView
+        tableView.reloadData()
+    }
+}
+
+extension QuestionViewController:UITableViewDataSource{
+    //это будет список ответов
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answers?.count ?? 0 //если вдруг answersCount не существует, то вернется 0
+    }
+    
+    //подготовить ячейку для вывода
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell")!
+        cell.textLabel?.text = answers?[indexPath.row]
+        let isCorrect = currentQuestion?.isCorrectAnswer(answers?[indexPath.row]) ?? false
+        cell.detailTextLabel?.text = isCorrect ? "Тыкай сюда!" : ""
+        return cell
     }
 }

@@ -30,4 +30,13 @@ struct Question {
         correctAnswer = json["correctAnswer"] as! String
         imageName = json["image"] as! String
     }
+    
+    //Проверка ответа на правильность
+    func isCorrectAnswer(answer:String?)->Bool{
+        guard answer != nil else {
+            return false
+        }
+        
+        return correctAnswer == answer
+    }
 }
