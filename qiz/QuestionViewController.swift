@@ -33,10 +33,18 @@ class QuestionViewController: UIViewController {
         return currentQuestion?.answers
     }
     
+    var totalPoints = 0;
+    var currentQuestionIndex = 0;
+    
     //вызывается, когда контроллер загрузил View
     override func viewDidLoad() {
         super.viewDidLoad()
+        //отвечает за то, как и что показывать
         tableView.dataSource = self
+        
+        //отвечает за то, что делать при возникновении различных событий
+        tableView.delegate = self
+        
         loadData()
         
     }
@@ -82,6 +90,7 @@ class QuestionViewController: UIViewController {
         questionList = questionModels
     }
     
+    //Обновляет отображение при получении вопроса
     func updateViews()
     {
         //настроили картинку
@@ -93,6 +102,7 @@ class QuestionViewController: UIViewController {
     }
 }
 
+//Расширение для поддержки отображения данных
 extension QuestionViewController:UITableViewDataSource{
     //это будет список ответов
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,8 +113,32 @@ extension QuestionViewController:UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell")!
         cell.textLabel?.text = answers?[indexPath.row]
-        let isCorrect = currentQuestion?.isCorrectAnswer(answers?[indexPath.row]) ?? false
-        cell.detailTextLabel?.text = isCorrect ? "Тыкай сюда!" : ""
+        cell.detailTextLabel?.text = isAnswerAtIndexIsCorrect(indexPath) ? "Тыкай сюда!" : ""
         return cell
+    }
+    
+    //проверяет, верный ли ответ по данному индексу
+    func isAnswerAtIndexIsCorrect(index: NSIndexPath)-> Bool{
+        return currentQuestion?.isCorrectAnswer(answers?[index.row]) ?? false
+    }
+}
+
+//Расширение для обработки событий нажатия и прочее
+extension QuestionViewController:UITableViewDelegate{
+    
+    //событие выделения ячейки
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if isAnswerAtIndexIsCorrect(indexPath){
+            totalPoints += 1
+        }
+        currentQuestionIndex += 1
+        guard currentQuestionIndex < questionList?.count else {
+            print("DEAD")
+            return
+        }
+        
+        currentQuestion = questionList?[currentQuestionIndex]
+        
+        
     }
 }
