@@ -21,7 +21,7 @@ class QuestionViewController: UIViewController {
         let fileName = "cinema"
         let fileExt = "json"
         //запросить у Bundle (хранилища) конкретный файл
-        let pathToVictineFile = NSBundle.mainBundle().pathForResource(fileName, ofType: fileExt)! //даже если фйла нет, будем падать
+        let pathToVictineFile = NSBundle.mainBundle().pathForResource(fileName, ofType: fileExt)! //если файла нет, будем падать
         
         //считаем данные из файла. Там содержатся любые данные. Более ничего неизвестно
         let data = NSData(contentsOfFile: pathToVictineFile)! //тоже развернем данные, ну потому что стопудово должно жбыть
@@ -34,5 +34,25 @@ class QuestionViewController: UIViewController {
         let json = try! NSJSONSerialization.JSONObjectWithData(data, options: [])
         
         print ("Содержимое \(json)")
+        
+        //json может быть что угодно, поэтому приводим его к коллекции
+        //представлили, что JSON - это та самая коллекция Строка -> Любой объект
+        guard let questionJson = json as? [String:AnyObject],
+            //если это так, то считаем из questionJson содержимое и
+            //если это окажется массив, в котором лежит коллекуии вида String:AnyObject, то окей
+            let questionsToParse = questionJson["questions"] as? [ [String:AnyObject] ] else {
+                print("Fail to load dataModel")
+                return
+        }
+        
+        //наш новый массив с вопросами
+        //map преобразовывает массив одного типа данных в массив другого типа
+        // in - применяется для каждого элемента
+        let questionModels = questionsToParse.map { json -> Question in
+            let parsedModel = Question(json: json)
+            return parsedModel
+        }
+        
+        print("Получили модель\n\(questionModels)")
     }
 }
