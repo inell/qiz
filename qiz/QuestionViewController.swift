@@ -9,7 +9,7 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
-
+    
     //вызывается, когда контроллер загрузил View
     override func viewDidLoad() {
         super.viewDidLoad()
