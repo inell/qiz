@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		C36501881CB8E272005FABBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36501871CB8E272005FABBD /* AppDelegate.swift */; };
-		C365018A1CB8E273005FABBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36501891CB8E273005FABBD /* ViewController.swift */; };
 		C365018D1CB8E273005FABBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C365018B1CB8E273005FABBD /* Main.storyboard */; };
 		C365018F1CB8E273005FABBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C365018E1CB8E273005FABBD /* Assets.xcassets */; };
 		C36501921CB8E273005FABBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C36501901CB8E273005FABBD /* LaunchScreen.storyboard */; };
+		C365019A1CB8E8EB005FABBD /* MFTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36501991CB8E8EB005FABBD /* MFTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C36501841CB8E272005FABBD /* qiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36501841CB8E272005FABBD /* Quiz_PetroKov.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz_PetroKov.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C36501871CB8E272005FABBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C36501891CB8E273005FABBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C365018C1CB8E273005FABBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C365018E1CB8E273005FABBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C36501911CB8E273005FABBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C36501931CB8E273005FABBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C36501991CB8E8EB005FABBD /* MFTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		C36501851CB8E272005FABBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C36501841CB8E272005FABBD /* qiz.app */,
+				C36501841CB8E272005FABBD /* Quiz_PetroKov.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,8 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				C36501871CB8E272005FABBD /* AppDelegate.swift */,
-				C36501891CB8E273005FABBD /* ViewController.swift */,
 				C365018B1CB8E273005FABBD /* Main.storyboard */,
+				C36501991CB8E8EB005FABBD /* MFTableViewController.swift */,
 				C365018E1CB8E273005FABBD /* Assets.xcassets */,
 				C36501901CB8E273005FABBD /* LaunchScreen.storyboard */,
 				C36501931CB8E273005FABBD /* Info.plist */,
@@ -67,9 +67,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C36501831CB8E272005FABBD /* qiz */ = {
+		C36501831CB8E272005FABBD /* Quiz_PetroKov */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C36501961CB8E273005FABBD /* Build configuration list for PBXNativeTarget "qiz" */;
+			buildConfigurationList = C36501961CB8E273005FABBD /* Build configuration list for PBXNativeTarget "Quiz_PetroKov" */;
 			buildPhases = (
 				C36501801CB8E272005FABBD /* Sources */,
 				C36501811CB8E272005FABBD /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = qiz;
+			name = Quiz_PetroKov;
 			productName = qiz;
-			productReference = C36501841CB8E272005FABBD /* qiz.app */;
+			productReference = C36501841CB8E272005FABBD /* Quiz_PetroKov.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C365017F1CB8E272005FABBD /* Build configuration list for PBXProject "qiz" */;
+			buildConfigurationList = C365017F1CB8E272005FABBD /* Build configuration list for PBXProject "Quiz_PetroKov" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C36501831CB8E272005FABBD /* qiz */,
+				C36501831CB8E272005FABBD /* Quiz_PetroKov */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C365018A1CB8E273005FABBD /* ViewController.swift in Sources */,
+				C365019A1CB8E8EB005FABBD /* MFTableViewController.swift in Sources */,
 				C36501881CB8E272005FABBD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,7 +254,7 @@
 				INFOPLIST_FILE = qiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.lsr.qiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quiz_PetroKov;
 			};
 			name = Debug;
 		};
@@ -265,14 +265,14 @@
 				INFOPLIST_FILE = qiz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.lsr.qiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quiz_PetroKov;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C365017F1CB8E272005FABBD /* Build configuration list for PBXProject "qiz" */ = {
+		C365017F1CB8E272005FABBD /* Build configuration list for PBXProject "Quiz_PetroKov" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C36501941CB8E273005FABBD /* Debug */,
@@ -281,7 +281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C36501961CB8E273005FABBD /* Build configuration list for PBXNativeTarget "qiz" */ = {
+		C36501961CB8E273005FABBD /* Build configuration list for PBXNativeTarget "Quiz_PetroKov" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C36501971CB8E273005FABBD /* Debug */,

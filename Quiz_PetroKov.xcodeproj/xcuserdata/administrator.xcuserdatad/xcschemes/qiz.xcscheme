@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C36501831CB8E272005FABBD"
-               BuildableName = "qiz.app"
-               BlueprintName = "qiz"
-               ReferencedContainer = "container:qiz.xcodeproj">
+               BuildableName = "Quiz_PetroKov.app"
+               BlueprintName = "Quiz_PetroKov"
+               ReferencedContainer = "container:Quiz_PetroKov.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C36501831CB8E272005FABBD"
-            BuildableName = "qiz.app"
-            BlueprintName = "qiz"
-            ReferencedContainer = "container:qiz.xcodeproj">
+            BuildableName = "Quiz_PetroKov.app"
+            BlueprintName = "Quiz_PetroKov"
+            ReferencedContainer = "container:Quiz_PetroKov.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C36501831CB8E272005FABBD"
-            BuildableName = "qiz.app"
-            BlueprintName = "qiz"
-            ReferencedContainer = "container:qiz.xcodeproj">
+            BuildableName = "Quiz_PetroKov.app"
+            BlueprintName = "Quiz_PetroKov"
+            ReferencedContainer = "container:Quiz_PetroKov.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C36501831CB8E272005FABBD"
-            BuildableName = "qiz.app"
-            BlueprintName = "qiz"
-            ReferencedContainer = "container:qiz.xcodeproj">
+            BuildableName = "Quiz_PetroKov.app"
+            BlueprintName = "Quiz_PetroKov"
+            ReferencedContainer = "container:Quiz_PetroKov.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
