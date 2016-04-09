@@ -37,6 +37,7 @@ class QuestionViewController: UIViewController {
     var currentQuestionIndex = 0;
     
     //вызывается, когда контроллер загрузил View (вызывается только один раз)
+    //вызывается, когда контроллер загрузил View
     override func viewDidLoad() {
         super.viewDidLoad()
         //отвечает за то, как и что показывать
