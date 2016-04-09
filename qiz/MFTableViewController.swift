@@ -12,12 +12,14 @@ class MFTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     //MODEL
-    //создаем массив элементов. это - замыкание
-    var model:[String] = {
+    //создаем массив элементов. это - замыкание. Обычный список
+    var model1:[String] = {
         var aLotOfStrings = "Любой текст бла-бла-бла MFTable ViewController .swift Quiz PetroKov Nigga Palevo 1 2 3 4 5 6".componentsSeparatedByString(" ")
         print("Total items: \(aLotOfStrings.count)") // \(...) - выводит значение
         return aLotOfStrings
     }()
+    //Для примера - секционированная табилца
+    var model2: [[String]] = [["111", "222", "333"], ["444", "555"]]
     
     //    конструктор после загрузки
     override func viewDidLoad() {
@@ -43,7 +45,8 @@ extension MFTableViewController: UITableViewDataSource {
     //вернуть количество строк в этом view
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("tableVeio asked cells count")
-        return model.count //число ячеек соответствует числу строк
+        //return model.count //число ячеек соответствует числу строк
+        return model2[section].count
     }
     
     //подготовить ячейку для вывода
@@ -65,7 +68,17 @@ extension MFTableViewController: UITableViewDataSource {
         let section = indexPath.section
         
         //вывод текста по индексу
-        cell?.textLabel?.text = model[stringIndex]
+        cell?.textLabel?.text = model2[section][stringIndex]
         return cell!
+    }
+    
+    //Заголовок секции
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Секция \(section)"
+    }
+    
+    //Количество секций
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return model2.count
     }
 }

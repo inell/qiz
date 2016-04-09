@@ -76,11 +76,11 @@ class QuestionViewController: UIViewController {
         
         print ("Содержимое \(json)")
         
-        //json может быть что угодно, поэтому приводим его к коллекции
-        //представлили, что JSON - это та самая коллекция Строка -> Любой объект
+        //в json может быть что угодно, поэтому приводим его к коллекции
+        //представили, что JSON - это та самая коллекция Строка -> Любой объект
         guard let questionJson = json as? [String:AnyObject],
             //если это так, то считаем из questionJson содержимое и
-            //если это окажется массив, в котором лежит коллекуии вида String:AnyObject, то окей
+            //если это окажется массив, в котором лежит коллекции вида String:AnyObject, то окей все
             let questionsToParse = questionJson["questions"] as? [ [String:AnyObject] ] else {
                 print("Fail to load dataModel")
                 return
