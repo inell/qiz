@@ -83,6 +83,9 @@ class AnimationViewController: UIViewController {
                     animations: { () -> Void in
                         self.watchInCinemaCeterX.constant = 15
                         self.wathLabel.textColor = UIColor.greenColor()
+                        //немного вращения =) 
+                        self.wathLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) / CGFloat(180) * CGFloat(20))
+                        
                         self.view.layoutIfNeeded()
                     }, completion: nil)
         }
