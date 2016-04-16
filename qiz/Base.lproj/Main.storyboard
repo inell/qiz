@@ -125,7 +125,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Вопросики" id="yKD-bh-Rt7">
-                        <barButtonItem key="backBarButtonItem" title="Назад" id="xOa-zB-4gN"/>
+                        <barButtonItem key="backBarButtonItem" title="В начало" id="xOa-zB-4gN"/>
                     </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="0gV-kD-5TP" id="nph-hC-b1j"/>
@@ -182,12 +182,52 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gh5-If-CfI" kind="relationship" relationship="rootViewController" id="IYW-ch-vJq"/>
+                        <segue destination="AFS-ig-DVK" kind="relationship" relationship="rootViewController" id="7oM-s1-oum"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE5-6b-YJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="948"/>
+            <point key="canvasLocation" x="-235" y="948"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h7l-MA-UQg">
+            <objects>
+                <viewController id="AFS-ig-DVK" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6PB-Xb-ZvE"/>
+                        <viewControllerLayoutGuide type="bottom" id="DaB-1p-ytD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H7g-Z0-uIm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypn-IB-k7y">
+                                <rect key="frame" x="223" y="114" width="154" height="30"/>
+                                <state key="normal" title="Перейти к викторине"/>
+                                <connections>
+                                    <segue destination="gh5-If-CfI" kind="show" id="Wpt-zb-xj6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ypn-IB-k7y" firstAttribute="top" secondItem="6PB-Xb-ZvE" secondAttribute="bottom" constant="50" id="bXZ-cm-lpo"/>
+                            <constraint firstItem="ypn-IB-k7y" firstAttribute="leading" secondItem="H7g-Z0-uIm" secondAttribute="leadingMargin" constant="50" id="fjG-2J-h4T"/>
+                            <constraint firstItem="ypn-IB-k7y" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="uaQ-8V-hbq"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="fjG-2J-h4T"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eep-Dd-tHO">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="5iU-KN-7iM"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhU-yF-v2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445" y="948"/>
         </scene>
     </scenes>
 </document>

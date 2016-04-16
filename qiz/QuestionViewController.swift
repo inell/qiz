@@ -36,9 +36,27 @@ class QuestionViewController: UIViewController {
     var totalPoints = 0;
     var currentQuestionIndex = 0;
     
-    //вызывается, когда контроллер загрузил View (вызывается только один раз)
-    //вызывается, когда контроллер загрузил View
+    //MARK: - ViewControoler Life Cycle
+//    1. Инициализация. Вызвается при инициализации из Storyboard
+    required init?(coder aDecoder:NSCoder){
+        super.init(coder: aDecoder)
+        print("init")
+    }
+//    2. Загрузка View
+//    Если нужно сощдать все View из кода, то в нем их надо создавать, как-то накидывать друг на друга и настраивать.
+//    Если ViewController был описан через Storyboard, то этот ментод переопределять не надо
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+    }
+    
+//    3. Вызвается, когда все View котроллера загружены
+//    В этот момент ViewCintroller еще не присутствует на экране.
+//    Это - отличное место для инициализации данных, запуска длительных процессов.
+//    В этот момент Views еще не приняли конечных положений.
+//    Вызывается, когда контроллер загрузил View (вызывается только один раз)
     override func viewDidLoad() {
+        print("viewDidLoad")
         super.viewDidLoad()
         //отвечает за то, как и что показывать
         tableView.dataSource = self
@@ -50,15 +68,52 @@ class QuestionViewController: UIViewController {
         
     }
     
-    //вызывается, когда View сейчас отобразится на экране (вызывается каждый раз)
+//   4. Вызывается, когда View сейчас отобразится на экране (вызывается каждый раз)
     override func viewWillAppear(animated: Bool) {
         //вернемся в начало викторины
         super.viewWillAppear(animated)
         currentQuestion = questionList?.first
         currentQuestionIndex = 0
         totalPoints = 0
+        
+        print("viewWillAppear")
+    }
+    
+//    5. Вызвается, когда View появилось на экране.
+//    Отличное место, чтобы запустить анимацию
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        print("viewDidAppear")
+    }
+    
+//    6. View начинает изсчезать с экрана
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        print("viewWillDisappear")
+    }
+    
+//    7. View полностью изчез
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("viewDidDisappear")
+    }
+    
+//    8. У любого класса есть этот метод
+    deinit{
+        print("deinit")
+    }
+    
+//    Когда приложение полуает сообщение о нехватке памяти
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        print("didReceiveMemoryWarning")
     }
 
+    // MARK: - Setup
+    
     func loadData(){
         let fileName = "cinema"
         let fileExt = "json"
@@ -68,14 +123,14 @@ class QuestionViewController: UIViewController {
         //считаем данные из файла. Там содержатся любые данные. Более ничего неизвестно
         let data = NSData(contentsOfFile: pathToVictineFile)! //тоже развернем данные, ну потому что стопудово должно жбыть
         
-        print(data)
+        //print(data)
         
         //try пишется перед методом, который может выкинуть exception
         //try! - гарантируем, что данне будут корреткро считаны
         //try? - если ничего не запишется, будет просо пусто
         let json = try! NSJSONSerialization.JSONObjectWithData(data, options: [])
         
-        print ("Содержимое \(json)")
+        //print ("Содержимое \(json)")
         
         //в json может быть что угодно, поэтому приводим его к коллекции
         //представили, что JSON - это та самая коллекция Строка -> Любой объект
@@ -95,11 +150,11 @@ class QuestionViewController: UIViewController {
             return parsedModel
         }
         
-        print("Получили модель\n\(questionModels)")
+        //print("Получили модель\n\(questionModels)")
         
         questionList = questionModels
     }
-    
+
     //Обновляет отображение при получении вопроса
     func updateViews()
     {
@@ -110,6 +165,8 @@ class QuestionViewController: UIViewController {
         //перезаполнить tableView
         tableView.reloadData()
     }
+    
+    // MARK: -
     
     //Метод запускается при перехода на новый экран
     //Вызывается после performSegueWithIdentifier()
@@ -131,6 +188,8 @@ class QuestionViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
+
 //Расширение для поддержки отображения данных
 extension QuestionViewController:UITableViewDataSource{
     //это будет список ответов
@@ -151,6 +210,8 @@ extension QuestionViewController:UITableViewDataSource{
         return currentQuestion?.isCorrectAnswer(answers?[index.row]) ?? false
     }
 }
+
+// MARK: - UITableViewDelegate
 
 //Расширение для обработки событий нажатия и прочее
 extension QuestionViewController:UITableViewDelegate{

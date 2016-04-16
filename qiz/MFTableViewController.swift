@@ -44,7 +44,7 @@ extension MFTableViewController: UITableViewDataSource {
     
     //вернуть количество строк в этом view
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("tableVeio asked cells count")
+        print("tableVeiw asked cells count")
         //return model.count //число ячеек соответствует числу строк
         return model2[section].count
     }
@@ -57,7 +57,7 @@ extension MFTableViewController: UITableViewDataSource {
      */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //indexPath - содержит номер секции и номер ячейки
-        print("tableView asek cell for \(indexPath)")
+        print("tableView asked cell for \(indexPath)")
         
         let cellIdentifier = "basicStringCell"
         
