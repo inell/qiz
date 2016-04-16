@@ -56,6 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="445" y="-410"/>
         </scene>
         <!--Вопросики-->
         <scene sceneID="XQk-E6-SCX">
@@ -171,6 +172,47 @@
             </objects>
             <point key="canvasLocation" x="1791" y="948"/>
         </scene>
+        <!--Анимация-->
+        <scene sceneID="VYl-Xa-akh">
+            <objects>
+                <viewController title="Анимация" id="pYL-al-lP1" customClass="AnimationViewController" customModule="Quiz_PetroKov" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mn4-BO-GXB"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZgB-dJ-29e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZrZ-35-A1G">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxt-tw-NrU">
+                                <rect key="frame" x="44" y="78" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.74695476576312769" green="1" blue="0.088012994224321406" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="XWP-jP-K8W"/>
+                                    <constraint firstAttribute="height" constant="128" id="yH1-9i-ZZL"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fourthQuestion1" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-dA-LlR">
+                                <rect key="frame" x="236" y="228" width="129" height="97"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dxt-tw-NrU" firstAttribute="leading" secondItem="ZrZ-35-A1G" secondAttribute="leadingMargin" constant="24" id="0ef-2K-gEb"/>
+                            <constraint firstItem="dNH-dA-LlR" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="JOI-K7-ArY"/>
+                            <constraint firstItem="dxt-tw-NrU" firstAttribute="top" secondItem="Mn4-BO-GXB" secondAttribute="bottom" constant="14" id="iMp-BD-KMs"/>
+                            <constraint firstItem="dNH-dA-LlR" firstAttribute="top" secondItem="dxt-tw-NrU" secondAttribute="bottom" constant="22" id="qGk-kc-1Br"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firshView" destination="dxt-tw-NrU" id="tYX-aK-dWJ"/>
+                        <outlet property="secondView" destination="dNH-dA-LlR" id="c33-Oc-oEa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W97-0M-H2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="273"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="fOF-mH-gf7">
             <objects>
@@ -187,7 +229,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE5-6b-YJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-235" y="948"/>
+            <point key="canvasLocation" x="-417" y="948"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="h7l-MA-UQg">
@@ -208,11 +250,20 @@
                                     <segue destination="gh5-If-CfI" kind="show" id="Wpt-zb-xj6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWl-Km-bHm">
+                                <rect key="frame" x="264" y="159" width="73" height="30"/>
+                                <state key="normal" title="Анимация"/>
+                                <connections>
+                                    <segue destination="pYL-al-lP1" kind="show" id="se1-ME-tVR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QWl-Km-bHm" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="9y6-iE-rqy"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="top" secondItem="6PB-Xb-ZvE" secondAttribute="bottom" constant="50" id="bXZ-cm-lpo"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="leading" secondItem="H7g-Z0-uIm" secondAttribute="leadingMargin" constant="50" id="fjG-2J-h4T"/>
+                            <constraint firstItem="QWl-Km-bHm" firstAttribute="top" secondItem="ypn-IB-k7y" secondAttribute="bottom" constant="15" id="ggQ-RE-Umn"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="uaQ-8V-hbq"/>
                         </constraints>
                         <variation key="default">
@@ -227,7 +278,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rhU-yF-v2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="445" y="948"/>
+            <point key="canvasLocation" x="323" y="948"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fourthQuestion1" width="129" height="97"/>
+    </resources>
 </document>
