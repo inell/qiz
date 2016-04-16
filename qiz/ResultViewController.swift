@@ -61,6 +61,5 @@ class ResultViewController: UIViewController {
     //Обработка освобождения ресурсов, когда ОС сообщаает, что мало памяти. Тогда приложение наверное не вышибут
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
