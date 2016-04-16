@@ -72,16 +72,18 @@ class AnimationViewController: UIViewController {
             delay: 0.5,
             options: UIViewAnimationOptions.CurveEaseIn,
             animations: { () -> Void in
-                self.watchInCinemaCeterX.constant = 0;
+                self.watchInCinemaCeterX.constant = -10;
                 self.view.layoutIfNeeded()
             }) { a in
                 //этот параметр, который передается в конце анимации, озанчает, завршилась ли вызывающая анимация
                 //по завершении этого блока анимации будет вызвана другая анимация
                 UIView.animateWithDuration(0.5,
                     delay: 0,
-                    options: [.Repeat, .Autoreverse],
+                    options: [.Repeat, .Autoreverse], //.Repeat, .Autoreverse работают только с геометрией
                     animations: { () -> Void in
+                        self.watchInCinemaCeterX.constant = 15
                         self.wathLabel.textColor = UIColor.greenColor()
+                        self.view.layoutIfNeeded()
                     }, completion: nil)
         }
     }
