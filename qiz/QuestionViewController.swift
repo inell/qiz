@@ -168,6 +168,7 @@ class QuestionViewController: UIViewController {
     }
     
     func updateImage(){
+//        так как высота ответов и картинки задана =conctrains, то при изменении одного колбасит и другого
         //1. Уменьшаем картинку до 0
         UIView.animateWithDuration(0.25, animations: { () -> Void in
             self.imageHeightConstraint.constant = 0
@@ -177,11 +178,19 @@ class QuestionViewController: UIViewController {
                 self.imageView.image = self.currentQuestion?.image
                 
                 //3. Растянем картинку обратно
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    self.imageHeightConstraint.constant = 100
-                    self.view.layoutIfNeeded()
-                    }, completion: nil)
+                UIView.animateWithDuration(1.2,
+                    delay: 0,
+                    usingSpringWithDamping: 0.4, //0 - очень сильно колбасит струну; 1 - без колебаний
+                    initialSpringVelocity: 3, //Относительная началная скорость изменения парметров
+                    options: [],
+                    animations: { () -> Void in
+                        self.imageHeightConstraint.constant = 100
+                        self.view.layoutIfNeeded()
+                    },
+                    completion: nil)
         }
+        
+        
         
         
         
