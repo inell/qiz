@@ -11,6 +11,7 @@ import UIKit
 class QuestionViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -158,12 +159,59 @@ class QuestionViewController: UIViewController {
     //Обновляет отображение при получении вопроса
     func updateViews()
     {
-        //настроили картинку
-        imageView.image = currentQuestion?.image
-        //задали вопрос
-        label.text = currentQuestion?.question
+        self.updateImage()
+        
+        self.updateLabel()
         //перезаполнить tableView
         tableView.reloadData()
+    }
+    
+    //обновление картинки вопроса
+    func updateImage(){
+//        так как высота ответов и картинки задана =conctrains, то при изменении одного колбасит и другого
+        //1. Уменьшаем картинку до 0
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            self.imageHeightConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            }) { _ in
+                //2. Заменим изборажение
+                self.imageView.image = self.currentQuestion?.image
+                
+                //3. Растянем картинку обратно
+                UIView.animateWithDuration(1.2,
+                    delay: 0,
+                    usingSpringWithDamping: 0.4, //0 - очень сильно колбасит струну; 1 - без колебаний
+                    initialSpringVelocity: 3, //Относительная началная скорость изменения парметров
+                    options: [],
+                    animations: { () -> Void in
+                        self.imageHeightConstraint.constant = 100
+                        self.view.layoutIfNeeded()
+                    },
+                    completion: nil)
+        }
+        
+    }
+    
+    //обновление текста вопроса
+    func updateLabel(){
+        
+        UIView.animateWithDuration(0.4, delay: 0,
+            options: [UIViewAnimationOptions.CurveEaseIn],
+            animations: { () -> Void in
+                self.label.transform = CGAffineTransformMakeTranslation(self.view.frame.width, 0)
+            }) { (_) -> Void in
+                //задали вопрос
+                self.label.text = self.currentQuestion?.question
+                self.label.transform = CGAffineTransformMakeTranslation( -self.view.frame.width, 0)
+                // layoutIfNeeded() не нужно, потому что не меняли constrains
+                
+                UIView.animateWithDuration(0.4, delay: 0,
+                    options: [UIViewAnimationOptions.CurveEaseOut],
+                    animations: { (_) -> Void in
+                        self.label.transform = CGAffineTransformIdentity
+                    }, completion: nil)
+        }
+        
     }
     
     // MARK: -
