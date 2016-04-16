@@ -11,6 +11,7 @@ import UIKit
 class QuestionViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var imageHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -158,12 +159,32 @@ class QuestionViewController: UIViewController {
     //Обновляет отображение при получении вопроса
     func updateViews()
     {
-        //настроили картинку
-        imageView.image = currentQuestion?.image
+        self.updateImage()
+        
         //задали вопрос
         label.text = currentQuestion?.question
         //перезаполнить tableView
         tableView.reloadData()
+    }
+    
+    func updateImage(){
+        //1. Уменьшаем картинку до 0
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            self.imageHeightConstraint.constant = 0
+            self.view.layoutIfNeeded()
+            }) { _ in
+                //2. Заменим изборажение
+                self.imageView.image = self.currentQuestion?.image
+                
+                //3. Растянем картинку обратно
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.imageHeightConstraint.constant = 100
+                    self.view.layoutIfNeeded()
+                    }, completion: nil)
+        }
+        
+        
+        
     }
     
     // MARK: -

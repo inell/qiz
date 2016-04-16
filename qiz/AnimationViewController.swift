@@ -84,6 +84,7 @@ class AnimationViewController: UIViewController {
                         self.watchInCinemaCeterX.constant = 15
                         self.wathLabel.textColor = UIColor.greenColor()
                         //немного вращения =) 
+                        //transform может конфликтовать с constrains в случае изменений масштаба/размера
                         self.wathLabel.transform = CGAffineTransformMakeRotation(CGFloat(M_PI) / CGFloat(180) * CGFloat(20))
                         
                         self.view.layoutIfNeeded()
