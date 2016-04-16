@@ -12,6 +12,8 @@ class AnimationViewController: UIViewController {
 
     @IBOutlet weak var firshView: UIView!
     @IBOutlet weak var secondView: UIImageView!
+    @IBOutlet weak var secondViewToGreetingSpace: NSLayoutConstraint!
+    @IBOutlet weak var phraseCenterX: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,10 @@ class AnimationViewController: UIViewController {
     func prepareForAnimation(){
         secondView.alpha = 0;
         firshView.backgroundColor = UIColor.greenColor()
+        //играемся с constrains
+        secondViewToGreetingSpace.constant = -40
+        //уедем на всю ширину вьюхи в сторону
+        phraseCenterX.constant = view.bounds.width
     }
     //сама анимация
     func animateAppeating(){
@@ -47,6 +53,12 @@ class AnimationViewController: UIViewController {
         UIView.animateWithDuration(0.3) { () -> Void in
             self.secondView.alpha = 1;
             self.firshView.backgroundColor = UIColor.yellowColor()
+            
+            self.secondViewToGreetingSpace.constant = 20
+            self.phraseCenterX.constant = 0
+            
+            //Если меняются какие-либо constrains, то можно пнуть вьюуху все пересчитать
+            self.view.layoutIfNeeded()
         }
     }
 

@@ -195,18 +195,36 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fourthQuestion1" translatesAutoresizingMaskIntoConstraints="NO" id="dNH-dA-LlR">
                                 <rect key="frame" x="236" y="228" width="129" height="97"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Мне нужна твоя одежда и мотоцикл" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wog-u5-XP9">
+                                <rect key="frame" x="155" y="402" width="291" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Приветствие:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-FJ-bZu" userLabel="Приветствие">
+                                <rect key="frame" x="246" y="367" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dxt-tw-NrU" firstAttribute="leading" secondItem="ZrZ-35-A1G" secondAttribute="leadingMargin" constant="24" id="0ef-2K-gEb"/>
+                            <constraint firstItem="wog-u5-XP9" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="CPb-2y-Uvk"/>
+                            <constraint firstItem="jPD-FJ-bZu" firstAttribute="top" secondItem="dNH-dA-LlR" secondAttribute="bottom" constant="42" id="HsQ-cs-PCl" userLabel="Приветствие под картинкой"/>
                             <constraint firstItem="dNH-dA-LlR" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="JOI-K7-ArY"/>
+                            <constraint firstItem="jPD-FJ-bZu" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="U2h-Tb-lQN" userLabel="Фраза по центру"/>
+                            <constraint firstItem="wog-u5-XP9" firstAttribute="top" secondItem="jPD-FJ-bZu" secondAttribute="bottom" constant="14" id="cod-u4-q6B" userLabel="Приветствие.bottom + 14"/>
                             <constraint firstItem="dxt-tw-NrU" firstAttribute="top" secondItem="Mn4-BO-GXB" secondAttribute="bottom" constant="14" id="iMp-BD-KMs"/>
                             <constraint firstItem="dNH-dA-LlR" firstAttribute="top" secondItem="dxt-tw-NrU" secondAttribute="bottom" constant="22" id="qGk-kc-1Br"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="firshView" destination="dxt-tw-NrU" id="tYX-aK-dWJ"/>
+                        <outlet property="phraseCenterX" destination="U2h-Tb-lQN" id="DSO-WP-1fH"/>
                         <outlet property="secondView" destination="dNH-dA-LlR" id="c33-Oc-oEa"/>
+                        <outlet property="secondViewToGreetingSpace" destination="HsQ-cs-PCl" id="NMD-Xn-UdK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W97-0M-H2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
