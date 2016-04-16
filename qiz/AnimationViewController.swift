@@ -13,7 +13,9 @@ class AnimationViewController: UIViewController {
     @IBOutlet weak var firshView: UIView!
     @IBOutlet weak var secondView: UIImageView!
     @IBOutlet weak var secondViewToGreetingSpace: NSLayoutConstraint!
-    @IBOutlet weak var phraseCenterX: NSLayoutConstraint!
+    @IBOutlet weak var watchInCinemaCeterX: NSLayoutConstraint!
+    @IBOutlet weak var wathLabel: UILabel!
+    @IBOutlet weak var phrase: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +44,12 @@ class AnimationViewController: UIViewController {
     func prepareForAnimation(){
         secondView.alpha = 0;
         firshView.backgroundColor = UIColor.greenColor()
+        
         //играемся с constrains
         secondViewToGreetingSpace.constant = -40
         //уедем на всю ширину вьюхи в сторону
-        phraseCenterX.constant = view.bounds.width
+        phrase.constant = view.bounds.width
+        watchInCinemaCeterX.constant = view.bounds.width
     }
     //сама анимация
     func animateAppeating(){
@@ -55,10 +59,30 @@ class AnimationViewController: UIViewController {
             self.firshView.backgroundColor = UIColor.yellowColor()
             
             self.secondViewToGreetingSpace.constant = 20
-            self.phraseCenterX.constant = 0
+            self.phrase.constant = 0
             
             //Если меняются какие-либо constrains, то можно пнуть вьюуху все пересчитать
             self.view.layoutIfNeeded()
+        }
+        
+        //еще одна анимация
+//        UIViewAnimationOptions.CurveEaseInOut - плавно начать, плавно закончить
+//        UIViewAnimationOptions.CurveEaseIn - начать плавно, закончить резко
+        UIView.animateWithDuration(0.3,
+            delay: 0.5,
+            options: UIViewAnimationOptions.CurveEaseIn,
+            animations: { () -> Void in
+                self.watchInCinemaCeterX.constant = 0;
+                self.view.layoutIfNeeded()
+            }) { a in
+                //этот параметр, который передается в конце анимации, озанчает, завршилась ли вызывающая анимация
+                //по завершении этого блока анимации будет вызвана другая анимация
+                UIView.animateWithDuration(0.5,
+                    delay: 0,
+                    options: [.Repeat, .Autoreverse],
+                    animations: { () -> Void in
+                        self.wathLabel.textColor = UIColor.greenColor()
+                    }, completion: nil)
         }
     }
 

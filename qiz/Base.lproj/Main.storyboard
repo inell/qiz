@@ -207,24 +207,34 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Смотрите в кинцо" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4a-LT-KWb">
+                                <rect key="frame" x="227" y="453" width="146" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dxt-tw-NrU" firstAttribute="leading" secondItem="ZrZ-35-A1G" secondAttribute="leadingMargin" constant="24" id="0ef-2K-gEb"/>
-                            <constraint firstItem="wog-u5-XP9" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="CPb-2y-Uvk"/>
+                            <constraint firstItem="G4a-LT-KWb" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="3z1-GL-Lox" userLabel="WhatchInCinemaCenterX"/>
+                            <constraint firstItem="wog-u5-XP9" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="CPb-2y-Uvk" userLabel="Phrase"/>
                             <constraint firstItem="jPD-FJ-bZu" firstAttribute="top" secondItem="dNH-dA-LlR" secondAttribute="bottom" constant="42" id="HsQ-cs-PCl" userLabel="Приветствие под картинкой"/>
                             <constraint firstItem="dNH-dA-LlR" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="JOI-K7-ArY"/>
                             <constraint firstItem="jPD-FJ-bZu" firstAttribute="centerX" secondItem="ZrZ-35-A1G" secondAttribute="centerX" id="U2h-Tb-lQN" userLabel="Фраза по центру"/>
                             <constraint firstItem="wog-u5-XP9" firstAttribute="top" secondItem="jPD-FJ-bZu" secondAttribute="bottom" constant="14" id="cod-u4-q6B" userLabel="Приветствие.bottom + 14"/>
                             <constraint firstItem="dxt-tw-NrU" firstAttribute="top" secondItem="Mn4-BO-GXB" secondAttribute="bottom" constant="14" id="iMp-BD-KMs"/>
+                            <constraint firstItem="G4a-LT-KWb" firstAttribute="top" secondItem="wog-u5-XP9" secondAttribute="bottom" constant="30" id="lze-f0-RUu"/>
                             <constraint firstItem="dNH-dA-LlR" firstAttribute="top" secondItem="dxt-tw-NrU" secondAttribute="bottom" constant="22" id="qGk-kc-1Br"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="firshView" destination="dxt-tw-NrU" id="tYX-aK-dWJ"/>
-                        <outlet property="phraseCenterX" destination="U2h-Tb-lQN" id="DSO-WP-1fH"/>
+                        <outlet property="phrase" destination="CPb-2y-Uvk" id="gJc-m4-Kr3"/>
                         <outlet property="secondView" destination="dNH-dA-LlR" id="c33-Oc-oEa"/>
                         <outlet property="secondViewToGreetingSpace" destination="HsQ-cs-PCl" id="NMD-Xn-UdK"/>
+                        <outlet property="watchInCinemaCeterX" destination="3z1-GL-Lox" id="ERP-2i-aWy"/>
+                        <outlet property="wathLabel" destination="G4a-LT-KWb" id="5LX-LV-08P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W97-0M-H2G" userLabel="First Responder" sceneMemberID="firstResponder"/>
