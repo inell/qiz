@@ -143,6 +143,24 @@
             </objects>
             <point key="canvasLocation" x="1117" y="948"/>
         </scene>
+        <!--Жесты-->
+        <scene sceneID="hxb-EI-fRn">
+            <objects>
+                <viewController title="Жесты" id="mD3-UB-V4E" customClass="GesturesViewController" customModule="Quiz_PetroKov" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ldn-FY-wsI"/>
+                        <viewControllerLayoutGuide type="bottom" id="mmg-t8-aTQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UmK-9k-cgG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0P-jY-6kQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="1697"/>
+        </scene>
         <!--Result View Controller-->
         <scene sceneID="Sq0-Ea-6Jb">
             <objects>
@@ -289,13 +307,22 @@
                                     <segue destination="pYL-al-lP1" kind="show" id="se1-ME-tVR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPa-bt-6oe">
+                                <rect key="frame" x="276" y="197" width="49" height="30"/>
+                                <state key="normal" title="Жесты"/>
+                                <connections>
+                                    <segue destination="mD3-UB-V4E" kind="show" id="iKM-1q-26l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QWl-Km-bHm" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="9y6-iE-rqy"/>
+                            <constraint firstItem="HPa-bt-6oe" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="BdA-Hc-xdk"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="top" secondItem="6PB-Xb-ZvE" secondAttribute="bottom" constant="50" id="bXZ-cm-lpo"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="leading" secondItem="H7g-Z0-uIm" secondAttribute="leadingMargin" constant="50" id="fjG-2J-h4T"/>
                             <constraint firstItem="QWl-Km-bHm" firstAttribute="top" secondItem="ypn-IB-k7y" secondAttribute="bottom" constant="15" id="ggQ-RE-Umn"/>
+                            <constraint firstItem="HPa-bt-6oe" firstAttribute="top" secondItem="QWl-Km-bHm" secondAttribute="bottom" constant="8" id="tbf-El-gp5"/>
                             <constraint firstItem="ypn-IB-k7y" firstAttribute="centerX" secondItem="H7g-Z0-uIm" secondAttribute="centerX" id="uaQ-8V-hbq"/>
                         </constraints>
                         <variation key="default">

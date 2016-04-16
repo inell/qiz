@@ -161,12 +161,12 @@ class QuestionViewController: UIViewController {
     {
         self.updateImage()
         
-        //задали вопрос
-        label.text = currentQuestion?.question
+        self.updateLabel()
         //перезаполнить tableView
         tableView.reloadData()
     }
     
+    //обновление картинки вопроса
     func updateImage(){
 //        так как высота ответов и картинки задана =conctrains, то при изменении одного колбасит и другого
         //1. Уменьшаем картинку до 0
@@ -190,9 +190,27 @@ class QuestionViewController: UIViewController {
                     completion: nil)
         }
         
+    }
+    
+    //обновление текста вопроса
+    func updateLabel(){
         
-        
-        
+        UIView.animateWithDuration(0.4, delay: 0,
+            options: [UIViewAnimationOptions.CurveEaseIn],
+            animations: { () -> Void in
+                self.label.transform = CGAffineTransformMakeTranslation(self.view.frame.width, 0)
+            }) { (_) -> Void in
+                //задали вопрос
+                self.label.text = self.currentQuestion?.question
+                self.label.transform = CGAffineTransformMakeTranslation( -self.view.frame.width, 0)
+                // layoutIfNeeded() не нужно, потому что не меняли constrains
+                
+                UIView.animateWithDuration(0.4, delay: 0,
+                    options: [UIViewAnimationOptions.CurveEaseOut],
+                    animations: { (_) -> Void in
+                        self.label.transform = CGAffineTransformIdentity
+                    }, completion: nil)
+        }
         
     }
     
